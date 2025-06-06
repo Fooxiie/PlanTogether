@@ -3,13 +3,24 @@
 {% block title %}Créer un sondage{% endblock %}
 
 {% block body %}
-<h1>Nouvelle proposition</h1>
+<h1 class="text-2xl mb-4">Nouvelle proposition</h1>
 {{ form_start(form) }}
     {{ form_row(form.organizerName) }}
     {{ form_row(form.organizerEmail) }}
     {{ form_row(form.startDate) }}
     {{ form_row(form.endDate) }}
     {{ form_row(form.deadline) }}
-    <button class="btn">Valider</button>
+
+    <div data-controller="slots">
+        <div data-slots-target="container">
+            {{ form_widget(form.slots) }}
+        </div>
+        <template data-slots-target="template">
+            {{ form_widget(form.slots.vars.prototype)|e('html_attr')|raw }}
+        </template>
+        <button class="mt-2 px-4 py-2 bg-blue-600 text-white" data-action="slots#add">Ajouter un créneau</button>
+    </div>
+
+    <button class="mt-4 px-4 py-2 bg-green-600 text-white">Valider</button>
 {{ form_end(form) }}
 {% endblock %}

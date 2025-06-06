@@ -6,8 +6,10 @@ use App\Entity\Poll;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
+use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
+use App\Form\PollSlotType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -23,6 +25,12 @@ class PollType extends AbstractType
             ->add('startDate', DateTimeType::class)
             ->add('endDate', DateTimeType::class)
             ->add('deadline', DateTimeType::class)
+            ->add('slots', CollectionType::class, [
+                'entry_type' => PollSlotType::class,
+                'allow_add' => true,
+                'by_reference' => false,
+                'prototype' => true,
+            ])
             ->add('save', SubmitType::class)
         ;
     }

@@ -17,6 +17,7 @@ class PollController extends AbstractController
     public function new(Request $request, PollRepository $repository, SluggerInterface $slugger): Response
     {
         $poll = new Poll();
+        $poll->addSlot(new \App\Entity\PollSlot());
         $form = $this->createForm(PollType::class, $poll);
         $form->handleRequest($request);
 

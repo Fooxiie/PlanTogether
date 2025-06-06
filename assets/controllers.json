@@ -9,6 +9,10 @@
                 "enabled": false,
                 "fetch": "eager"
             }
+        },
+        "slots": {
+            "enabled": true,
+            "fetch": "eager"
         }
     },
     "entrypoints": []
