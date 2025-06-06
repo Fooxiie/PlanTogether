@@ -7,7 +7,6 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\CollectionType;
-use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use App\Form\PollSlotType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -31,7 +30,6 @@ class PollType extends AbstractType
                 'by_reference' => false,
                 'prototype' => true,
             ])
-            ->add('save', SubmitType::class)
         ;
     }
 
