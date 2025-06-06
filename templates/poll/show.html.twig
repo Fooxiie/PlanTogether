@@ -1,0 +1,9 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Proposition{% endblock %}
+
+{% block body %}
+<h1 class="text-2xl mb-4">Proposition de {{ poll.organizerName }}</h1>
+<p class="mb-2">Période : {{ poll.startDate|date('d/m/Y H:i') }} - {{ poll.endDate|date('d/m/Y H:i') }}</p>
+<p class="mb-4">Deadline : {{ poll.deadline|date('d/m/Y H:i') }}</p>
+{% endblock %}
